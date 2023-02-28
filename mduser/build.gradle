@@ -1,0 +1,62 @@
+if (rootProject.ext.isModule) {
+    //可独立运行的app
+    apply plugin: 'com.android.application'
+} else {
+    //被依赖的library
+    apply plugin: 'com.android.library'
+}
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion versions.compileSdk
+    buildToolsVersion versions.buildTools
+    defaultConfig {
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.targetSdk
+        versionCode 1
+        versionName "0.0.1"
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [moduleName: project.getName()]
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    sourceSets {
+        main {
+            if (rootProject.ext.isModule) {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/java/library/AndroidManifest.xml'
+                java {//移除module包下的代码
+                    exclude 'module'
+                }
+            }
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    //google官方lib
+    implementation rootProject.ext.supprotLibs
+    //Arouter 配置
+    implementation rootProject.ext.arouterLibs["arouter"]
+    implementation project(':routercore')
+    kapt rootProject.ext.arouterLibs["arouterCompiler"]
+//    annotationProcessor rootProject.ext.arouterLibs["arouterCompiler"]
+
+}
