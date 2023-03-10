@@ -38,4 +38,8 @@ dependencies {
     api rootProject.ext.socialLibs
     api rootProject.ext.netLibs
     api rootProject.ext.fastDev
+    api (rootProject.ext.videoLibs) {
+        exclude group: "androidx.core", module: "core"
+        exclude group: "androidx.annotation", module: "annotation"
+    }
 }

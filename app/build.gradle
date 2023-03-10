@@ -52,5 +52,4 @@ dependencies {
     if (!rootProject.ext.isModule) {
         implementation project(':mduser')
     }
-
 }
