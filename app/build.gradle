@@ -7,7 +7,7 @@ android {
     compileSdkVersion versions.compileSdk
     buildToolsVersion versions.buildTools
     defaultConfig {
-        applicationId "com.tdxtxt.module"
+        applicationId "cn.com.changan.learning.android"
         minSdkVersion versions.minSdk
         targetSdkVersion versions.targetSdk
         versionCode versions.versionCode
@@ -46,7 +46,7 @@ dependencies {
     implementation rootProject.ext.supprotLibs
     implementation rootProject.ext.multidex
     //Arouter 配置
-    implementation project(':routercore')
+    implementation project(':Routercore')
     kapt rootProject.ext.arouterLibs["arouterCompiler"]
 //    annotationProcessor rootProject.ext.arouterLibs["arouterCompiler"]
     if (!rootProject.ext.isModule) {

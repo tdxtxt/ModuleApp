@@ -13,7 +13,17 @@ android {
     }
 
     buildTypes {
+        debug {
+            buildConfigField "String", "HOST_DEV", rootProject.ext.host.HOST_DEV //常量-开发服务网地址
+            buildConfigField "String", "HOST_TEST", rootProject.ext.host.HOST_TEST //常量-测试服务网地址
+            buildConfigField "String", "HOST_RELEASE", rootProject.ext.host.HOST_RELEASE //常量-测试服务网地址
+        }
+
         release {
+            buildConfigField "String", "HOST_DEV", rootProject.ext.host.HOST_DEV //常量-开发服务网地址
+            buildConfigField "String", "HOST_TEST", rootProject.ext.host.HOST_TEST //常量-测试服务网地址
+            buildConfigField "String", "HOST_RELEASE", rootProject.ext.host.HOST_RELEASE //常量-测试服务网地址
+
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }

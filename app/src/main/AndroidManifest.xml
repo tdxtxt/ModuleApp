@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.tdxtxt.app">
+    package="com.edu.app">
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:name=".ModuleApplication"
+        android:name=".EduClientApplication"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity">
+            android:name=".activity.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".VideoActivity"
+            android:name=".activity.VideoActivity"
             android:configChanges="orientation|keyboardHidden|screenSize|uiMode|screenLayout|smallestScreenSize|layoutDirection"
             android:launchMode="singleTask"
             android:windowSoftInputMode="adjustResize|stateHidden" />

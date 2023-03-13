@@ -55,7 +55,7 @@ dependencies {
     implementation rootProject.ext.supprotLibs
     //Arouter 配置
     implementation rootProject.ext.arouterLibs["arouter"]
-    implementation project(':routercore')
+    implementation project(':Routercore')
     kapt rootProject.ext.arouterLibs["arouterCompiler"]
 //    annotationProcessor rootProject.ext.arouterLibs["arouterCompiler"]
 

@@ -1,4 +1,4 @@
-rootProject.name='ModuleApp'
+rootProject.name='EduClient'
 include ':app'
-include ':routercore'
+include ':Routercore'
 include ':mduser'
