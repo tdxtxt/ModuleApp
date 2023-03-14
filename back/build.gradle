@@ -1,4 +1,10 @@
-apply plugin: 'com.android.application'
+if (rootProject.ext.isModule) {
+    //可独立运行的app
+    apply plugin: 'com.android.application'
+} else {
+    //被依赖的library
+    apply plugin: 'com.android.library'
+}
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
@@ -7,11 +13,10 @@ android {
     compileSdkVersion versions.compileSdk
     buildToolsVersion versions.buildTools
     defaultConfig {
-        applicationId "cn.com.changan.learning.android"
         minSdkVersion versions.minSdk
         targetSdkVersion versions.targetSdk
-        versionCode versions.versionCode
-        versionName versions.versionName
+        versionCode 1
+        versionName "0.0.1"
 
         javaCompileOptions {
             annotationProcessorOptions {
@@ -21,21 +26,25 @@ android {
     }
 
     buildTypes {
-        debug {
-            debuggable true
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+    sourceSets {
+        main {
+            if (rootProject.ext.isModule) {
+                manifest.srcFile 'src/main/AndroidManifest.xml'
+            } else {
+                manifest.srcFile 'src/main/java/library/AndroidManifest.xml'
+                java {//移除module包下的代码
+                    exclude 'module'
+                }
+            }
+        }
     }
+
 }
 
 dependencies {
@@ -44,13 +53,9 @@ dependencies {
 
     //google官方lib
     implementation rootProject.ext.supprotLibs
-    implementation rootProject.ext.multidex
     //Arouter 配置
+    implementation rootProject.ext.arouterLibs["arouter"]
     implementation project(':Routercore')
     kapt rootProject.ext.arouterLibs["arouterCompiler"]
-//    annotationProcessor rootProject.ext.arouterLibs["arouterCompiler"]
-    if (!rootProject.ext.isModule) {
-        implementation project(':mduser')
-        implementation project(':mdmain')
-    }
+
 }

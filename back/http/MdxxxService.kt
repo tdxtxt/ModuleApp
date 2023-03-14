@@ -1,4 +1,4 @@
-package com.routercore.mduser.http
+package com.edu.mdxxx.http
 
 import com.routercore.bean.response.BaseResponse
 import io.reactivex.Observable
@@ -12,7 +12,7 @@ import retrofit2.http.POST
  *     desc   :
  * </pre>
  */
-interface MdUserService {
+interface MdxxxService {
     @POST("user/login")
     fun login(@Body body: Map<String, String>): Observable<BaseResponse<Any>>
 }

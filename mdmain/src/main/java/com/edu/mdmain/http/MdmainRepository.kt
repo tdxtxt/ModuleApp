@@ -1,4 +1,4 @@
-package com.routercore.mduser.http
+package com.edu.mdmain.http
 
 import android.util.ArrayMap
 import com.routercore.bean.response.BaseResponse
@@ -12,8 +12,8 @@ import io.reactivex.Observable
  *     desc   :
  * </pre>
  */
-object MdUserRepository {
-    private fun getService() = NetMgr.getService(MdUserService::class.java)
+object MdmainRepository {
+    private fun getService() = NetMgr.getService(MdmainService::class.java)
 
     fun login(username: String, password: String): Observable<BaseResponse<Any>> {
         val parmas = ArrayMap<String, String>()
