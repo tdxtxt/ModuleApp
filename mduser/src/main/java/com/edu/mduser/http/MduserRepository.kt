@@ -1,6 +1,7 @@
 package com.edu.mduser.http
 
 import android.util.ArrayMap
+import com.edu.mduser.bean.response.LoginTokenBody
 import com.routercore.bean.response.BaseResponse
 import com.tdxtxt.net.NetMgr
 import io.reactivex.Observable
@@ -15,10 +16,12 @@ import io.reactivex.Observable
 object MduserRepository {
     private fun getService() = NetMgr.getService(MduserService::class.java)
 
-    fun login(username: String, password: String): Observable<BaseResponse<Any>> {
+    fun login(userName: String, password: String): Observable<LoginTokenBody> {
         val parmas = ArrayMap<String, String>()
-        parmas.put("username", username)
-        parmas.put("password", password)
+        parmas.put("type", "PHONE_NUMBER")
+        parmas.put("name", userName)
+        parmas.put("secret", password)
+        parmas.put("group", "STUDENT-APP")
         return getService().login(parmas)
     }
 }

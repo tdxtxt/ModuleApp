@@ -5,11 +5,11 @@ import android.content.Context
 import com.alibaba.android.arouter.launcher.ARouter
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.Logger
+import com.routercore.net.NetProviderImpl
 import com.tdxtxt.baselib.app.ApplicationDelegate
 import com.tdxtxt.baselib.tools.CacheHelper
 import com.tdxtxt.baselib.tools.LogA
 import com.tdxtxt.net.NetMgr
-import com.routercore.net.NetProviderImpl
 
 /**
  * <pre>
@@ -41,7 +41,7 @@ class EduClientApplication : Application() {
 
         override fun onPrivacyBefore(context: Context) {//同意隐私正常之前
             CacheHelper.init(context)
-            NetMgr.registerProvider(NetProviderImpl())
+            NetMgr.registerProvider(NetProviderImpl().apply { initEvnType(BuildConfig.DEBUG) })
             if (BuildConfig.DEBUG) {
                 Logger.addLogAdapter(AndroidLogAdapter())
                 LogA.plant(object : LogA.DebugTree() {
@@ -50,11 +50,6 @@ class EduClientApplication : Application() {
                     }
                 })
             }
-            /*SocialSdk.init(context, AppConstant.WX_APP_ID, AppConstant.WX_APP_SECRET, AppConstant.QQ_APP_ID)
-                .registerWxPlatform(WxPlatform.Creator())
-    //            .registerWbPlatform(WbPlatform.Creator())
-                .registerQQPlatform(QQPlatform.Creator())
-                .registerAliPlatform(AliPlatform.Creator())*/
         }
     }
 }

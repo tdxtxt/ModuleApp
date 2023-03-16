@@ -1,6 +1,6 @@
 package com.edu.mduser.http
 
-import com.routercore.bean.response.BaseResponse
+import com.edu.mduser.bean.response.LoginTokenBody
 import io.reactivex.Observable
 import retrofit2.http.Body
 import retrofit2.http.POST
@@ -13,6 +13,6 @@ import retrofit2.http.POST
  * </pre>
  */
 interface MduserService {
-    @POST("user/login")
-    fun login(@Body body: Map<String, String>): Observable<BaseResponse<Any>>
+    @POST("api/access-tokens")
+    fun login(@Body body: Map<String, String>): Observable<LoginTokenBody>
 }

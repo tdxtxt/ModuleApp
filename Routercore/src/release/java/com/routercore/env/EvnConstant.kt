@@ -1,6 +1,5 @@
 package com.routercore.env
 
-import com.routercore.BuildConfig
 
 /**
  * <pre>
@@ -10,5 +9,4 @@ import com.routercore.BuildConfig
  * </pre>
  */
 object EvnConstant {
-    const val HOST = BuildConfig.HOST_DEV
 }

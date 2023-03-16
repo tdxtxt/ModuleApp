@@ -11,5 +11,5 @@ import com.routercore.BuildConfig
  * </pre>
  */
 object EvnConstant {
-    var HOST = BuildConfig.HOST_DEV
+
 }

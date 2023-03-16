@@ -1,7 +1,8 @@
 package com.routercore.net
 
+import com.routercore.bean.response.BaseResponse
 import com.routercore.utils.RouterConstant
-import com.tdxtxt.net.observer.AbsObserverNetapi
+import com.tdxtxt.net.observer.AbsObserverNetapiResponse
 
 /**
  * <pre>
@@ -10,7 +11,7 @@ import com.tdxtxt.net.observer.AbsObserverNetapi
  *     desc   :
  * </pre>
  */
-abstract class BaseObserverNetapi<T> : AbsObserverNetapi<T>() {
+abstract class BaseObserverNetapiResponse<T> : AbsObserverNetapiResponse<BaseResponse<T>>() {
     override fun host() = RouterConstant.HOST
 
 }

@@ -12,7 +12,7 @@ ext{
     ]
 
     host = [
-            HOST_DEV : "\"https://www.wanandroid.com\"",//服务器 开发地址
+            HOST_DEV : "\"https://learn-dev.changan.com.cn\"",//服务器 开发地址
             HOST_TEST : "\"https://www.wanandroid.com\"",//服务器 测试地址
             HOST_RELEASE : "\"https://www.wanandroid.com\""//服务器 正式地址
     ]
@@ -50,7 +50,7 @@ ext{
     ]
 
     netLibs = [
-            "net"   :   "io.github.tdxtxt:net_beta:0.0.2-release"
+            "net"   :   "io.github.tdxtxt:net_beta:0.0.6-release"
     ].values()
 
     image = [

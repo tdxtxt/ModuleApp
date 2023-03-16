@@ -10,17 +10,15 @@ import com.tdxtxt.net.model.AbsResponse
  *     desc   :
  * </pre>
  */
-class BaseResponse<T> : AbsResponse{
+open class BaseResponseBody: AbsResponse{
     var status: Int? = 200
     @SerializedName("message")
     var msg: String = ""
-    var data: T? = null
-
-
-    override fun isSuccess() = status == 200
+    override fun getCode() = status
 
     override fun getMessage() = msg
-    override fun getMeta() = data
 
-    override fun getCode() = status
+    override fun getMeta() = this
+
+    override fun isSuccess() = status == 200
 }
