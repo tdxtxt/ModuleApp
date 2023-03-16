@@ -13,4 +13,6 @@ import com.alibaba.android.arouter.facade.template.IProvider
 interface IMdmainService : IProvider {
     override fun init(context: Context?) {}
 
+    fun openMain(isRefresh: Boolean)
+    fun openHomePage(isRefresh: Boolean)
 }

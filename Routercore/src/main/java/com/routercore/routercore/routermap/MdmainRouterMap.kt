@@ -10,5 +10,5 @@ package com.routercore.routercore.routermap
 object MdmainRouterMap {
     const val MDMAIN_SERVICE_MAP = "/MDMAIN/MDMAIN_SERVICE_MAP"
 
-
+    const val MDMAIN_ACT_MAIN = "/MDMAIN/MDMAIN_ACT_MAIN"
 }

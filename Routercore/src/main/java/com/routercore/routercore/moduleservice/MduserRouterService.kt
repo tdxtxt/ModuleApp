@@ -16,6 +16,14 @@ object MduserRouterService {
 
     private fun getService() = ARouter.getInstance().build(MduserRouterMap.MDUSER_SERVICE_MAP).navigation() as IMduserService
 
+    fun isLogin(): Boolean{
+        return false
+    }
+
+    fun openLogin(){
+
+    }
+
     fun login(activity: BaseActivity, username: String, password: String){
         getService().login(activity, username, password)
     }

@@ -13,6 +13,12 @@ import com.routercore.routercore.routermap.MdmainRouterMap
  */
 @Route(path = MdmainRouterMap.MDMAIN_SERVICE_MAP)
 class MdmainServiceImpl : IMdmainService {
+    override fun openMain(isRefresh: Boolean) {
+        
+    }
+
+    override fun openHomePage(isRefresh: Boolean) {
+    }
 
 
 }

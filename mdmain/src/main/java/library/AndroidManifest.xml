@@ -7,6 +7,9 @@
         android:allowBackup="true"
         android:supportsRtl="true"
         tools:replace="android:allowBackup">
+
+        <activity android:name=".activity.MainActivity"
+            android:launchMode="singleTask"/>
     </application>
 
 </manifest>
